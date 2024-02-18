@@ -1,0 +1,242 @@
+[gd_scene load_steps=16 format=3 uid="uid://ci7yxlcfkqhxd"]
+
+[ext_resource type="Script" path="res://Scenes/base_door.gd" id="1_dy0a6"]
+[ext_resource type="Texture2D" uid="uid://tnd7bryk2kjp" path="res://map/door_bathroom.png" id="2_0a106"]
+[ext_resource type="AudioStream" uid="uid://cym2nqat5mlls" path="res://sounds/door_open.mp3" id="3_wv2i7"]
+[ext_resource type="AudioStream" uid="uid://c6xxgkag00fkc" path="res://sounds/close_door.mp3" id="4_vr4gy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ma8ei"]
+resource_name = "Material.045"
+cull_mode = 2
+albedo_texture = ExtResource("2_0a106")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2ftfk"]
+resource_name = "mapgamejam_Cube_051"
+_surfaces = [{
+"aabb": AABB(-2.30623, 4.90657e-08, -0.065706, 2.39802, 3.55766, 0.128558),
+"attribute_data": PackedByteArray(44, 166, 94, 67, 174, 161, 0, 0, 44, 166, 255, 255, 0, 0, 0, 0, 44, 166, 57, 139, 39, 175, 94, 67, 44, 166, 255, 255, 39, 175, 255, 255, 174, 161, 255, 255, 39, 175, 57, 139, 0, 0, 255, 255, 39, 175, 255, 255, 39, 175, 94, 67, 174, 161, 0, 0, 39, 175, 255, 255, 0, 0, 0, 0, 39, 175, 57, 139, 44, 166, 94, 67, 39, 175, 255, 255, 44, 166, 255, 255, 174, 161, 255, 255, 44, 166, 57, 139, 0, 0, 255, 255, 44, 166, 255, 255),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(5, 0, 11, 0, 23, 0, 2, 0, 4, 0, 16, 0, 9, 0, 7, 0, 19, 0, 13, 0, 15, 0, 22, 0, 3, 0, 1, 0, 8, 0, 6, 0, 0, 0, 12, 0, 5, 0, 23, 0, 17, 0, 2, 0, 16, 0, 14, 0, 9, 0, 19, 0, 21, 0, 13, 0, 22, 0, 20, 0, 3, 0, 8, 0, 10, 0, 6, 0, 12, 0, 18, 0),
+"material": SubResource("StandardMaterial3D_ma8ei"),
+"name": "Material.010",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(254, 255, 0, 0, 249, 255, 255, 255, 254, 255, 0, 0, 249, 255, 255, 255, 254, 255, 0, 0, 249, 255, 84, 213, 0, 0, 0, 0, 249, 255, 255, 255, 0, 0, 0, 0, 249, 255, 84, 213, 0, 0, 0, 0, 249, 255, 255, 255, 254, 255, 255, 255, 249, 255, 255, 255, 254, 255, 255, 255, 249, 255, 84, 213, 254, 255, 255, 255, 249, 255, 255, 255, 0, 0, 255, 255, 249, 255, 84, 213, 0, 0, 255, 255, 249, 255, 255, 255, 0, 0, 255, 255, 249, 255, 255, 255, 254, 255, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 254, 127, 254, 255, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 254, 127, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 255, 255, 254, 255, 255, 255, 0, 0, 84, 213, 254, 255, 255, 255, 0, 0, 254, 127, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 254, 127, 0, 0, 255, 255, 0, 0, 255, 255, 255, 63, 255, 127, 255, 255, 255, 127, 84, 213, 170, 42, 255, 255, 255, 127, 84, 213, 170, 42, 255, 191, 255, 127, 255, 63, 255, 127, 170, 42, 84, 213, 255, 255, 255, 127, 170, 42, 84, 213, 255, 255, 255, 127, 255, 191, 255, 127, 255, 63, 255, 127, 255, 127, 255, 255, 84, 213, 170, 42, 255, 127, 255, 255, 84, 213, 170, 42, 255, 191, 255, 127, 255, 63, 255, 127, 170, 42, 84, 213, 255, 127, 255, 255, 170, 42, 84, 213, 255, 127, 255, 255, 255, 191, 255, 127)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="Animation" id="Animation_vy5h7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_close2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door_open2:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kty0u"]
+resource_name = "close_door"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0, 0.707107, 0, 0.707107), Quaternion(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_close2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_oodg5"]
+resource_name = "close_door_reverse"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Quaternion(0, -0.707107, 0, 0.707107), Quaternion(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_close2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_q45ld"]
+resource_name = "open_door"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1), Quaternion(0, 0.0473244, 0, 0.99888), Quaternion(0, 0.707107, 0, 0.707107)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_open2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qdrv1"]
+resource_name = "open_door_reverse"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:quaternion")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Quaternion(0, 0, 0, 1), Quaternion(0, -0.0469951, 0, 0.998895), Quaternion(0, -0.707107, 0, 0.707107)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door_open2:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cncxq"]
+_data = {
+"RESET": SubResource("Animation_vy5h7"),
+"close_door": SubResource("Animation_kty0u"),
+"close_door_reverse": SubResource("Animation_oodg5"),
+"open_door": SubResource("Animation_q45ld"),
+"open_door_reverse": SubResource("Animation_qdrv1")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ri1yu"]
+size = Vector3(2.4, 3.56145, 0.129639)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_14d3j"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("3_wv2i7")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_nky6h"]
+random_pitch = 1.15
+streams_count = 1
+stream_0/stream = ExtResource("4_vr4gy")
+stream_0/weight = 1.0
+
+[node name="BaseDoor" type="Node3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0)
+rotation_edit_mode = 1
+script = ExtResource("1_dy0a6")
+
+[node name="Cube_062" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.999999, -8.74228e-08, 7.25215e-08, -8.74227e-08, -1, -7.64274e-15, 7.25215e-08, 1.3027e-15, -0.999999, -7.06874e-07, 3.55852, 1.93852e-07)
+rotation_edit_mode = 1
+mesh = SubResource("ArrayMesh_2ftfk")
+skeleton = NodePath("")
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cncxq")
+}
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09999, 1.78073, -0.0020747)
+shape = SubResource("BoxShape3D_ri1yu")
+
+[node name="door_open2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_14d3j")
+volume_db = -2.0
+
+[node name="door_close2" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_nky6h")
+volume_db = -2.0
+
+[node name="Area3D2" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09999, 1.78073, -0.0020747)
+shape = SubResource("BoxShape3D_ri1yu")

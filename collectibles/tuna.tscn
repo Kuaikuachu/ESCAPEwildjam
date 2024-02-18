@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://odxvi883xehx"]
+
+[ext_resource type="PackedScene" uid="uid://vr53pu3qcsa3" path="res://Scenes/BaseCollectible.tscn" id="1_pu8nt"]
+[ext_resource type="PackedScene" uid="uid://vpno1spcxtku" path="res://model/tuna.glb" id="2_5jgx5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ohng2"]
+points = PackedVector3Array(17.6923, 1.47862, 8.93794, -22.3739, -4.24702, -0.596888, -20.4623, -4.24702, -4.4113, 10.0545, 117.868, -2.50531, -16.6477, 98.7787, 10.8464, 15.785, 1.47862, -10.1366, -9.00992, 100.691, -12.0474, -10.9172, -2.33449, 12.7572, 17.3465, 97.4424, 6.28092, 15.785, 102.592, -10.1366, 7.04447, 95.0505, 11.163, -9.00992, -2.33449, -12.0474, -19.3324, 96.4113, -2.34397, 21.5112, 3.39115, -4.4113, 10.0545, 102.592, -12.0474, 8.14721, -0.421959, 12.7572, -10.9172, 98.7787, 12.7572, -20.4623, -4.24702, 7.03195, 19.0766, 99.2125, 2.89775, -20.5899, 93.6204, 2.98256, 21.5112, 1.47862, 3.2151, 10.0545, 1.47862, -12.0474, 10.0545, 117.868, 1.30668, -12.8331, 98.7787, -10.1366, 18.9539, 98.9458, -3.85582, -16.6477, -4.24702, 10.8464, -16.6477, -2.33449, -8.22815, -5.19961, -2.33449, -12.0474, -22.3739, -4.24702, 3.2151, 11.9704, -0.421959, 10.8464, 19.5996, 1.47862, 7.03195, -18.5146, 94.6978, -3.94785)
+
+[node name="BaseCollectible" instance=ExtResource("1_pu8nt")]
+object_weight = 3.0
+food_item = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(0.000904378, 9.41814e-06, -0.0348685, -0.000416199, 0.00256034, 0.000117536, 0.0348662, 3.03186e-05, 0.00090584, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_ohng2")
+
+[node name="tuna" parent="Model" index="0" instance=ExtResource("2_5jgx5")]

@@ -1,0 +1,474 @@
+[gd_scene load_steps=14 format=3 uid="uid://cmj8u1un6o11o"]
+
+[ext_resource type="Script" path="res://scripts/Settings.gd" id="1_rpu53"]
+[ext_resource type="Theme" uid="uid://dru1asdu8d5c7" path="res://theme.tres" id="2_qntgx"]
+[ext_resource type="AudioStream" uid="uid://bs3mw8aho6h7c" path="res://sounds/tone.wav" id="3_n8dap"]
+[ext_resource type="PackedScene" uid="uid://cb8p621eaaiew" path="res://Scenes/ui_hotkey_rebind.tscn" id="4_tsiab"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pqjmo"]
+random_pitch = 1.02
+streams_count = 1
+stream_0/stream = ExtResource("3_n8dap")
+stream_0/weight = 1.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_q0un0"]
+device = -1
+keycode = 87
+physical_keycode = 87
+unicode = 119
+
+[sub_resource type="InputEventKey" id="InputEventKey_b10ix"]
+device = -1
+keycode = 65
+physical_keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_3veik"]
+device = -1
+keycode = 83
+physical_keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_c0cog"]
+device = -1
+keycode = 68
+physical_keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_1ior5"]
+device = -1
+keycode = 4194325
+physical_keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_gujhe"]
+device = -1
+keycode = 69
+physical_keycode = 69
+unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_i6213"]
+device = -1
+keycode = 70
+physical_keycode = 70
+unicode = 102
+
+[sub_resource type="InputEventKey" id="InputEventKey_ti74w"]
+device = -1
+keycode = 4194305
+physical_keycode = 4194305
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_rpu53")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+z_index = -1
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 48
+tab_alignment = 1
+
+[node name="general" type="Control" parent="MarginContainer/Panel/MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Left" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="WindowMode" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "window mode"
+
+[node name="Resolution" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "resolution
+"
+
+[node name="Volume" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "volume"
+
+[node name="MouseSens" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "mouse sensitivity"
+
+[node name="Brightness" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "brightness"
+
+[node name="MaxFps" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "max fps"
+
+[node name="Right" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+alignment = 2
+
+[node name="WindowOption" type="OptionButton" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+item_count = 3
+selected = 2
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Fullscreen"
+popup/item_1/id = 3
+popup/item_2/text = "Exclusive Fullscreen"
+popup/item_2/id = 4
+
+[node name="ResOptions" type="OptionButton" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+alignment = 1
+item_count = 10
+selected = 0
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1366x768"
+popup/item_1/id = 1
+popup/item_2/text = "1280x1024"
+popup/item_2/id = 2
+popup/item_3/text = "1440x900"
+popup/item_3/id = 3
+popup/item_4/text = "1600x900"
+popup/item_4/id = 4
+popup/item_5/text = "1680x1050"
+popup/item_5/id = 5
+popup/item_6/text = "1280x800"
+popup/item_6/id = 6
+popup/item_7/text = "1024x768"
+popup/item_7/id = 7
+popup/item_8/text = "2560x1440"
+popup/item_8/id = 8
+popup/item_9/text = "3840x2160"
+popup/item_9/id = 9
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 11
+
+[node name="VolumeSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_qntgx")
+min_value = -40.0
+max_value = 6.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer/VolumeSlider"]
+stream = SubResource("AudioStreamRandomizer_pqjmo")
+volume_db = -7.0
+max_polyphony = 15
+
+[node name="ToneDelay" type="Timer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer/VolumeSlider"]
+wait_time = 0.1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 11
+
+[node name="SensSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_qntgx")
+min_value = 0.01
+max_value = 1.5
+step = 0.05
+value = 0.31
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right"]
+layout_mode = 2
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_bottom = 11
+
+[node name="BrightSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer3"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_qntgx")
+min_value = 0.2
+max_value = 4.0
+step = 0.2
+value = 1.0
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer4"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+min_value = 5.0
+max_value = 420.0
+value = 60.0
+
+[node name="LeftBottom" type="Control" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/LeftBottom"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+offset_right = 234.0
+grow_vertical = 0
+theme_override_constants/margin_top = 50
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/LeftBottom/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Button" type="Button" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/LeftBottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " back "
+
+[node name="RightBottom" type="Control" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/RightBottom"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -601.0
+offset_top = -101.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/RightBottom/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 75
+alignment = 1
+
+[node name="Save" type="Button" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/RightBottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " save "
+
+[node name="Apply2" type="Button" parent="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/RightBottom/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " apply "
+
+[node name="controls" type="Control" parent="MarginContainer/Panel/MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Left" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 25
+
+[node name="forward" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "move forward"
+
+[node name="left" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "move left"
+
+[node name="back" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "move backwards"
+
+[node name="right" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "move right"
+
+[node name="right2" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "sprint"
+
+[node name="interact" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "pickup/interact"
+
+[node name="flashlight" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "toggle flashlight"
+
+[node name="settings" type="Label" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Left"]
+layout_mode = 2
+theme = ExtResource("2_qntgx")
+theme_override_font_sizes/font_size = 40
+text = "open settings"
+
+[node name="Right" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/separation = 65
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right"]
+layout_mode = 2
+
+[node name="UiHotkeyRebind" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right/HBoxContainer" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "forward"
+default_action_button = SubResource("InputEventKey_q0un0")
+
+[node name="UiHotkeyRebind2" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+default_action_button = SubResource("InputEventKey_b10ix")
+
+[node name="UiHotkeyRebind3" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "back"
+default_action_button = SubResource("InputEventKey_3veik")
+
+[node name="UiHotkeyRebind4" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "right"
+default_action_button = SubResource("InputEventKey_c0cog")
+
+[node name="UiHotkeyRebind7" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "run"
+default_action_button = SubResource("InputEventKey_1ior5")
+
+[node name="UiHotkeyRebind5" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "interact"
+default_action_button = SubResource("InputEventKey_gujhe")
+
+[node name="UiHotkeyRebind6" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "toggle_flashlight"
+default_action_button = SubResource("InputEventKey_i6213")
+
+[node name="UiHotkeyRebind8" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/Right" instance=ExtResource("4_tsiab")]
+layout_mode = 2
+action_name = "escape"
+default_action_button = SubResource("InputEventKey_ti74w")
+
+[node name="LeftBottom" type="Control" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/LeftBottom"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 50
+
+[node name="Button" type="Button" parent="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/LeftBottom/MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = " back "
+
+[connection signal="item_selected" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/WindowOption" to="." method="_on_window_option_item_selected"]
+[connection signal="item_selected" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/ResOptions" to="." method="_on_res_options_item_selected"]
+[connection signal="drag_ended" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_drag_ended"]
+[connection signal="drag_started" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_drag_started"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="timeout" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer/VolumeSlider/ToneDelay" to="." method="_on_tone_delay_timeout"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer2/SensSlider" to="." method="_on_sens_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer3/BrightSlider" to="." method="_on_bright_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/Right/MarginContainer4/SpinBox" to="." method="_on_spin_box_value_changed"]
+[connection signal="button_up" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/LeftBottom/MarginContainer/HBoxContainer/Button" to="." method="_on_button_button_up"]
+[connection signal="button_up" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/RightBottom/MarginContainer/HBoxContainer/Save" to="." method="_on_save_button_up"]
+[connection signal="button_up" from="MarginContainer/Panel/MarginContainer/TabContainer/general/MarginContainer/RightBottom/MarginContainer/HBoxContainer/Apply2" to="." method="_on_apply_button_up"]
+[connection signal="button_up" from="MarginContainer/Panel/MarginContainer/TabContainer/controls/MarginContainer/LeftBottom/MarginContainer/Button" to="." method="_on_button_button_up"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhgcgpwuif0sw"]
+
+[ext_resource type="Theme" uid="uid://dru1asdu8d5c7" path="res://theme.tres" id="1_mbkug"]
+[ext_resource type="Script" path="res://Scenes/Label.gd" id="2_5jvib"]
+
+[sub_resource type="Animation" id="Animation_ge65p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_m0ep1"]
+resource_name = "text_anim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7kbjl"]
+_data = {
+"RESET": SubResource("Animation_ge65p"),
+"text_anim": SubResource("Animation_m0ep1")
+}
+
+[node name="Label" type="Label"]
+theme = ExtResource("1_mbkug")
+text = "thanks for purchase"
+autowrap_mode = 3
+script = ExtResource("2_5jvib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7kbjl")
+}
+autoplay = "text_anim"

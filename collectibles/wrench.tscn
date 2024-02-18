@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbrvb5b0ugnog"]
+
+[ext_resource type="PackedScene" uid="uid://vr53pu3qcsa3" path="res://Scenes/BaseCollectible.tscn" id="1_4uha1"]
+[ext_resource type="PackedScene" uid="uid://bp6gi743g0674" path="res://model/wrench.glb" id="2_eta3q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7h8ge"]
+size = Vector3(0.692932, 0.333398, 3.02875)
+
+[node name="BaseCollectible" instance=ExtResource("1_4uha1")]
+object_weight = 7.0
+object_value_low = 35.0
+object_value_high = 45.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00845337, 0.133301, 0.00973511)
+shape = SubResource("BoxShape3D_7h8ge")
+
+[node name="wrench" parent="Model" index="0" instance=ExtResource("2_eta3q")]

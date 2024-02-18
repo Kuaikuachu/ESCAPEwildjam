@@ -1,0 +1,739 @@
+[gd_scene load_steps=30 format=3 uid="uid://d4ly4hw64clwt"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_j6r0f"]
+[ext_resource type="Texture2D" uid="uid://bdm67cdcknnuh" path="res://textures/UI/back.png" id="2_dlflt"]
+[ext_resource type="AudioStream" uid="uid://bsvej6ct8icw7" path="res://sounds/flashlight_toggle.mp3" id="2_ep8k7"]
+[ext_resource type="Script" path="res://scripts/InteractRay.gd" id="2_klj4u"]
+[ext_resource type="Script" path="res://Scenes/UIManager.gd" id="2_qcudr"]
+[ext_resource type="Texture2D" uid="uid://dvb047v3o0x73" path="res://textures/UI/front.png" id="3_vmh36"]
+[ext_resource type="Texture2D" uid="uid://cx50dexds61ei" path="res://textures/UI/front_depleted.png" id="4_7ehdi"]
+[ext_resource type="Texture2D" uid="uid://b5cjpq7l6ope3" path="res://textures/UI/crosshair.png" id="5_o5ick"]
+[ext_resource type="AudioStream" uid="uid://cyrrjxijyfjhx" path="res://sounds/pick_up.mp3" id="6_ymu1x"]
+[ext_resource type="AudioStream" uid="uid://dtasr2sweptse" path="res://sounds/step2.mp3" id="8_56ip0"]
+[ext_resource type="Theme" uid="uid://dru1asdu8d5c7" path="res://theme.tres" id="8_blnw2"]
+[ext_resource type="AudioStream" uid="uid://bs3mw8aho6h7c" path="res://sounds/tone.wav" id="9_fxdhc"]
+[ext_resource type="FontFile" uid="uid://d1r7xrt83o4t8" path="res://fonts/Ticketing.ttf" id="9_mfpmm"]
+[ext_resource type="Script" path="res://Scenes/AudioStreamPlayer.gd" id="10_o4u5w"]
+[ext_resource type="Texture2D" uid="uid://cfndl18m4ixwk" path="res://textures/UI/bag.png" id="12_jte1k"]
+[ext_resource type="PackedScene" uid="uid://cmj8u1un6o11o" path="res://Scenes/settings.tscn" id="12_v3g70"]
+[ext_resource type="Texture2D" uid="uid://dridrj0e4c5jf" path="res://textures/UI/food_icon.png" id="12_x8o2y"]
+[ext_resource type="Texture2D" uid="uid://bv7dcatxu6kd6" path="res://textures/UI/no_bag.png" id="13_d540p"]
+[ext_resource type="Texture2D" uid="uid://djp7csq2uvyhy" path="res://textures/UI/hand.png" id="14_1ofl6"]
+[ext_resource type="Script" path="res://Scenes/Hint.gd" id="17_gwpul"]
+
+[sub_resource type="Animation" id="Animation_btg5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["humanity is dying.
+blood is fuel.
+we found a good spot."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../UIManager/AudioStreamPlayer:sounding")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Objective:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Objective/ViewPortPanel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Objective/Text2:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../Panel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../..:start_vaulting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rc01r"]
+resource_name = "first"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2, 3, 3.7, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.329, 0.329, 0.562, 0.329, 0.632, 0.632, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["humanity is dying.
+blood is fuel.  
+we found a good spot.", "humanity is dying.
+you hunt supplies.
+we found a good spot."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../UIManager/AudioStreamPlayer:sounding")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 3.7, 4, 5, 6, 7, 11, 12, 13.5, 14.5, 16, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 9, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../Objective:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../Objective/ViewPortPanel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 13.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../Objective/Text2:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10, 11, 12, 13.5, 14.5, 16, 17, 20),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.305, 0.305, 0.652, 0.652, 1.0, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../Panel:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../..:start_vaulting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ukbi"]
+_data = {
+"RESET": SubResource("Animation_btg5x"),
+"first": SubResource("Animation_rc01r")
+}
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_pqjmo"]
+random_pitch = 1.02
+streams_count = 1
+stream_0/stream = ExtResource("9_fxdhc")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wptv8"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("2_ep8k7")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5sqfr"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("6_ymu1x")
+stream_0/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ojkfs"]
+playback_mode = 1
+random_pitch = 1.3
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("8_56ip0")
+stream_0/weight = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1hskt"]
+radius = 0.3
+height = 2.2
+
+[sub_resource type="LabelSettings" id="LabelSettings_oaorv"]
+line_spacing = 2.0
+font = ExtResource("9_mfpmm")
+font_size = 40
+
+[node name="Player" type="CharacterBody3D"]
+input_ray_pickable = false
+wall_min_slide_angle = 0.0
+safe_margin = 0.005
+script = ExtResource("1_j6r0f")
+
+[node name="GiveFlashlightHint" type="Timer" parent="."]
+wait_time = 8.0
+
+[node name="UIManager" type="Node2D" parent="."]
+script = ExtResource("2_qcudr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UIManager"]
+root_node = NodePath("../../Text/Text1")
+libraries = {
+"": SubResource("AnimationLibrary_5ukbi")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="UIManager"]
+stream = SubResource("AudioStreamRandomizer_pqjmo")
+volume_db = -7.0
+max_polyphony = 15
+script = ExtResource("10_o4u5w")
+sounding = false
+
+[node name="flashlight_click" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_wptv8")
+
+[node name="pick_up" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_5sqfr")
+volume_db = -4.0
+max_polyphony = 3
+
+[node name="step" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ojkfs")
+volume_db = 5.0
+max_polyphony = 15
+
+[node name="flashlight_holder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.8, 0)
+
+[node name="flashlight" type="SpotLight3D" parent="flashlight_holder"]
+light_energy = 3.0
+light_specular = 0.0
+spot_range = 7.5
+spot_angle = 50.0
+
+[node name="shoulder" type="Node3D" parent="."]
+
+[node name="neck" type="Node3D" parent="shoulder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="head" type="Node3D" parent="shoulder/neck"]
+
+[node name="Camera3D" type="Camera3D" parent="shoulder/neck/head"]
+current = true
+fov = 80.0
+
+[node name="InteractRay" type="RayCast3D" parent="shoulder/neck/head"]
+target_position = Vector3(0, 0, -2.5)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("2_klj4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25868, -2.98023e-08)
+shape = SubResource("CapsuleShape3D_1hskt")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_blnw2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StaminaBar" type="TextureProgressBar" parent="CanvasLayer/Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+value = 9.0
+fill_mode = 5
+texture_under = ExtResource("2_dlflt")
+texture_progress = ExtResource("3_vmh36")
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StaminaBarDepleted" type="TextureProgressBar" parent="CanvasLayer/Control/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+value = 9.0
+fill_mode = 5
+texture_under = ExtResource("2_dlflt")
+texture_progress = ExtResource("4_7ehdi")
+radial_initial_angle = 270.0
+radial_fill_degrees = 180.0
+
+[node name="icons" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="cursor" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/icons"]
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_o5ick")
+
+[node name="bag" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/icons"]
+visible = false
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_jte1k")
+
+[node name="door" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/icons"]
+visible = false
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("14_1ofl6")
+
+[node name="no_bag" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/icons"]
+visible = false
+layout_mode = 2
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_d540p")
+
+[node name="Control2" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("8_blnw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_x8o2y")
+expand_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="current" type="Label" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "smth"
+
+[node name="divider" type="Label" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "/"
+
+[node name="required" type="Label" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "wrong"
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 65)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("8_blnw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="weneedmore" type="Label" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+text = "we need more."
+horizontal_alignment = 1
+
+[node name="escape" type="Label" parent="CanvasLayer/Control2/MarginContainer/VBoxContainer/Panel2/MarginContainer"]
+visible = false
+layout_mode = 2
+text = "escape now."
+horizontal_alignment = 1
+
+[node name="Hint" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_gwpul")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Hint"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 75
+theme_override_constants/margin_bottom = 130
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Hint/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Hint/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(700, 65)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_blnw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Hint/MarginContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HintLabel" type="Label" parent="CanvasLayer/Hint/MarginContainer/VBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+text = "Press F for flashlight"
+horizontal_alignment = 1
+
+[node name="HintTimer" type="Timer" parent="CanvasLayer/Hint"]
+wait_time = 5.0
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("12_v3g70")]
+visible = false
+
+[node name="Text" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Text1" type="Label" parent="Text"]
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.3
+anchor_right = 0.7
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+text = "humanity is dying.
+blood is fuel.
+we found a good spot."
+label_settings = SubResource("LabelSettings_oaorv")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="Panel2" type="Panel" parent="Text/Text1"]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_blnw2")
+
+[node name="Objective" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Text2" type="Label" parent="Objective"]
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.45
+anchor_bottom = 0.45
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 1
+theme = ExtResource("8_blnw2")
+text = "bring us 4 sustenance.
+you can bring scrap too.
+bring as much as you can."
+label_settings = SubResource("LabelSettings_oaorv")
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_characters_behavior = 1
+visible_ratio = 0.0
+
+[node name="Panel2" type="Panel" parent="Objective/Text2"]
+z_index = -2
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("8_blnw2")
+
+[node name="ViewPortPanel" type="Panel" parent="Objective"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.55
+anchor_top = 0.55
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_blnw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="Objective/ViewPortPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Objective/ViewPortPanel/MarginContainer"]
+layout_mode = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Objective/ViewPortPanel/MarginContainer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(766, 430)
+render_target_update_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="Objective/ViewPortPanel/MarginContainer/SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 0.976695, 0.214633, 0, -0.214633, 0.976695, 0.61505, 2.6, -2.6)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25868, -2.98023e-08)
+shape = SubResource("CapsuleShape3D_1hskt")
+
+[connection signal="timeout" from="GiveFlashlightHint" to="." method="_on_give_flashlight_hint_timeout"]
+[connection signal="timeout" from="CanvasLayer/Hint/HintTimer" to="CanvasLayer/Hint" method="_on_hint_timer_timeout"]

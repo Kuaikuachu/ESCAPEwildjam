@@ -1,0 +1,54 @@
+[gd_scene load_steps=19 format=3 uid="uid://gkkel5qq8kwm"]
+
+[ext_resource type="Script" path="res://Scenes/Test.gd" id="1_2tjkw"]
+[ext_resource type="AudioStream" uid="uid://b6kb5jbaj5k4" path="res://sounds/screech.wav" id="2_4hn1f"]
+[ext_resource type="AudioStream" uid="uid://buq0d8v7ix3cl" path="res://sounds/wall_crush.mp3" id="3_sjm67"]
+[ext_resource type="AudioStream" uid="uid://ctjs3qep04u4g" path="res://sounds/ambience.mp3" id="4_vqlsl"]
+[ext_resource type="Script" path="res://scripts/ItemSpawnManager.gd" id="5_fujya"]
+[ext_resource type="PackedScene" uid="uid://dw1b047taetrd" path="res://collectibles/can.tscn" id="6_8pdki"]
+[ext_resource type="PackedScene" uid="uid://odxvi883xehx" path="res://collectibles/tuna.tscn" id="7_8fi0d"]
+[ext_resource type="PackedScene" uid="uid://ds44y0hetqkdk" path="res://collectibles/MRE.tscn" id="8_qr5q4"]
+[ext_resource type="PackedScene" uid="uid://civtgl0fcgcs0" path="res://collectibles/water_bottle.tscn" id="9_7vfn0"]
+[ext_resource type="PackedScene" uid="uid://iu7lf7xs028s" path="res://collectibles/tv.tscn" id="10_16vtl"]
+[ext_resource type="PackedScene" uid="uid://ddr5m32jjabst" path="res://collectibles/bucket.tscn" id="11_psfh6"]
+[ext_resource type="PackedScene" uid="uid://djrbsxyti2cc0" path="res://collectibles/coffee_pot.tscn" id="12_asc7k"]
+[ext_resource type="PackedScene" uid="uid://mpboy1rl0i04" path="res://collectibles/accumulator.tscn" id="13_hxi4w"]
+[ext_resource type="PackedScene" uid="uid://b2av6xsj8hmsh" path="res://collectibles/camera.tscn" id="14_rjkep"]
+[ext_resource type="PackedScene" uid="uid://jnaiyycyjxjn" path="res://collectibles/batteries.tscn" id="15_gd7i5"]
+[ext_resource type="PackedScene" uid="uid://bbrvb5b0ugnog" path="res://collectibles/wrench.tscn" id="16_obh45"]
+[ext_resource type="PackedScene" uid="uid://b2ollrx6mbhok" path="res://collectibles/screwdriver.tscn" id="17_hjxqy"]
+[ext_resource type="PackedScene" uid="uid://beujg5e8iv433" path="res://collectibles/hammer.tscn" id="18_0foll"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_2tjkw")
+
+[node name="game_timer" type="Timer" parent="."]
+wait_time = 80.0
+one_shot = true
+
+[node name="monster_spawn_delay" type="Timer" parent="."]
+wait_time = 8.0
+one_shot = true
+
+[node name="monster_warning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4hn1f")
+volume_db = -20.0
+
+[node name="wall_crush" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_sjm67")
+volume_db = -10.0
+unit_size = 50.0
+max_db = 0.0
+
+[node name="ambience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vqlsl")
+volume_db = -10.0
+pitch_scale = 0.8
+
+[node name="ItemSpawnManager" type="Node3D" parent="."]
+script = ExtResource("5_fujya")
+foods = Array[PackedScene]([ExtResource("6_8pdki"), ExtResource("7_8fi0d"), ExtResource("8_qr5q4"), ExtResource("9_7vfn0")])
+uncommons_big = Array[PackedScene]([ExtResource("10_16vtl")])
+commons_big = Array[PackedScene]([ExtResource("11_psfh6"), ExtResource("12_asc7k")])
+uncommons_small = Array[PackedScene]([ExtResource("13_hxi4w"), ExtResource("14_rjkep")])
+commons_small = Array[PackedScene]([ExtResource("15_gd7i5"), ExtResource("16_obh45"), ExtResource("17_hjxqy"), ExtResource("18_0foll")])
